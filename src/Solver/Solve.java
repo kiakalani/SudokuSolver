@@ -1,3 +1,5 @@
+package Solver;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -5,7 +7,7 @@ import java.util.*;
 /**
  * @author Kia Kalani
  * @version 1.00
- * <code>Solve</code> class is responsible for solving a given board to it.
+ * <code>Solver.Solve</code> class is responsible for solving a given board to it.
  */
 public class Solve {
     /**
@@ -94,7 +96,7 @@ public class Solve {
      * @param original is the original array
      * @return a copy of the array
      */
-    public int[][] copy(int[][] original) {
+    public static int[][] copy(int[][] original) {
         int[][] cp = new int[original.length][original[0].length];
         for (int i=0;i<original.length;i++) {
             for (int j=0;j<original[i].length;j++) {

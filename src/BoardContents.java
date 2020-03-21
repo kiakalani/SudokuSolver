@@ -28,7 +28,9 @@ public class BoardContents {
      * The controller of all the game related objects.
      */
     private NumberController numberController;
-
+    /**
+     * The board of the game as a grid.
+     */
     private int[][] board;
 
     /**
@@ -45,6 +47,11 @@ public class BoardContents {
         numberController = new NumberController(numbers, rectangles, display, board);
     }
 
+    /**
+     * The getter of the board
+     *
+     * @return the contents of the board
+     */
     public int[][] getBoard() {
         return board;
     }
@@ -60,7 +67,7 @@ public class BoardContents {
             boardContents.addRow(r);
             boardContents.addColumn(r);
         }
-        boardContents.relocate(250,50);
+        boardContents.relocate(250, 50);
         display.getChildren().add(boardContents);
     }
 

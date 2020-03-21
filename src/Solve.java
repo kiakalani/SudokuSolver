@@ -1,5 +1,3 @@
-package Solver;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -7,7 +5,7 @@ import java.util.*;
 /**
  * @author Kia Kalani
  * @version 1.00
- * <code>Solver.Solve</code> class is responsible for solving a given board to it.
+ * <code>Solve</code> class is responsible for solving a given board to it.
  */
 public class Solve {
     /**
@@ -150,6 +148,11 @@ public class Solve {
             System.out.println("Error reading file");
         }
         return new int[0][0];
+    }
+
+    public static String randomDir() {
+        File[] files = new File("SudokuTables").listFiles();
+        return "SudokuTables/"+files[new Random().nextInt(files.length)].getName();
     }
 
 

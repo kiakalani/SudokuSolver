@@ -1,6 +1,3 @@
-package SolvePage;
-
-import Solver.Solve;
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.image.Image;
@@ -120,7 +117,7 @@ public class NumberController {
                 try {
                     int typedNum = Integer.parseInt(keyEvent.getText());
                     if (selected[0] != -1 && board[selected[0]][selected[1]] == 0) {
-                        numbers[selected[0]][selected[1]].setImage(new Image("SolvePage/Nums/" + typedNum + ".jpg"));
+                        numbers[selected[0]][selected[1]].setImage(new Image("Nums/" + typedNum + ".jpg"));
                         solvingBoard[selected[0]][selected[1]] = typedNum;
                         rectangles[selected[0]][selected[1]].setFill(colorModified);
                     }

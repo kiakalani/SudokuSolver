@@ -1,5 +1,4 @@
-package SolvePage;
-
+import javafx.scene.Group;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
@@ -31,39 +30,50 @@ public class BoardContents {
      */
     private NumberController numberController;
 
+    private int[][] board;
+
     /**
      * The constructor
-     * @param board the initial given board
+     *
+     * @param board   the initial given board
      * @param display the pane showing the contents.
      */
-    public BoardContents(int[][] board, StackPane display) {
+    public BoardContents(int[][] board, Group display) {
         setBoardContents(display);
         setRectangles();
         setNumbers(board);
-        numberController = new NumberController(numbers,rectangles,display,board);
+        this.board = board;
+        numberController = new NumberController(numbers, rectangles, display, board);
+    }
+
+    public int[][] getBoard() {
+        return board;
     }
 
     /**
      * This method initializes the gridpane with the row size of 9 and column size of 9.
+     *
      * @param display is the default pane displaying the game contents.
      */
-    private void setBoardContents(StackPane display) {
+    private void setBoardContents(Group display) {
         boardContents = new GridPane();
         for (int r = 0; r < 9; r++) {
             boardContents.addRow(r);
             boardContents.addColumn(r);
         }
+        boardContents.relocate(250,50);
         display.getChildren().add(boardContents);
     }
 
     /**
      * This method initializes all of the numbers according to the data from the board.
+     *
      * @param board is the sudoku board.
      */
     private void setNumbers(int[][] board) {
         for (int r = 0; r < numbers.length; r++) {
             for (int c = 0; c < numbers[r].length; c++) {
-                numbers[r][c] = new ImageView("SolvePage/Nums/" + board[r][c] + ".jpg");
+                numbers[r][c] = new ImageView("Nums/" + board[r][c] + ".jpg");
                 numbers[r][c].setFitWidth(50);
                 numbers[r][c].setFitHeight(50);
                 boardContents.add(numbers[r][c], c, r);

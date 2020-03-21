@@ -133,6 +133,7 @@ public class NumberController {
      * @param rectangles refers to the grid of rectangles behind the images.
      */
     private void catchErrors(Rectangle[][] rectangles) {
+        setDefaultColors(rectangles);
         catchHorizontalErrors(rectangles);
         catchVerticalErrors(rectangles);
         catchGridErrors(rectangles);

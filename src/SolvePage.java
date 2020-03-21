@@ -3,13 +3,12 @@ import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
 public class SolvePage extends Group {
     private final Scene scene = new Scene(this,1024,768);
     private final static String btnStyle = "-fx-background-color: #000000;\n" +
-            "-fx-text-fill: white;\n" +
+            "-fx-text-fill: green;\n" +
             "-fx-alignment: CENTER;";
     private BoardContents boardContents;
     private Button solve;

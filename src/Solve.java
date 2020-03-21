@@ -17,10 +17,11 @@ public class Solve {
 
     /**
      * This method indicates if a move is valid.
-     * @param row the given row
+     *
+     * @param row    the given row
      * @param column the given column
-     * @param ans is the key for finding out whether it is valid or not
-     * @param board is the sudoku board
+     * @param ans    is the key for finding out whether it is valid or not
+     * @param board  is the sudoku board
      * @return true if the answer is valid
      */
     private static boolean isValid(int row, int column, int ans, int[][] board) {
@@ -46,6 +47,7 @@ public class Solve {
 
     /**
      * This method provides all of the empty spots in the board. i.e. the spots with the content 0
+     *
      * @param board is the sudoku board
      * @return the rows and columns of the valid positions
      */
@@ -70,6 +72,7 @@ public class Solve {
 
     /**
      * This method is responsible for solving the board.
+     *
      * @param board is the sudoku board.
      * @return true if the board is solved.
      */
@@ -91,13 +94,14 @@ public class Solve {
 
     /**
      * This method creates a copy of the 2d arrays of integers
+     *
      * @param original is the original array
      * @return a copy of the array
      */
     public static int[][] copy(int[][] original) {
         int[][] cp = new int[original.length][original[0].length];
-        for (int i=0;i<original.length;i++) {
-            for (int j=0;j<original[i].length;j++) {
+        for (int i = 0; i < original.length; i++) {
+            for (int j = 0; j < original[i].length; j++) {
                 cp[i][j] = original[i][j];
             }
         }
@@ -106,6 +110,7 @@ public class Solve {
 
     /**
      * This method is responsible for returning a solved board
+     *
      * @param board is the sudoku board.
      * @return the solved sudoku board
      */
@@ -113,12 +118,13 @@ public class Solve {
         int[][] boardCopy = copy(board);
         if (solve(boardCopy)) {
             return boardCopy;
-        }else System.out.println("Error solving");
+        } else System.out.println("Error solving");
         return board;
     }
 
     /**
      * This method provides the solved answer to the board
+     *
      * @param board is the sudoku board
      * @return a solved version of the board
      */
@@ -128,6 +134,7 @@ public class Solve {
 
     /**
      * This method reads a board from a file.
+     *
      * @param path refers to the path of the file.
      * @return the board from the file as a 2d array of integers.
      */
@@ -138,21 +145,27 @@ public class Solve {
             int row = 0;
             while (reader.hasNextLine()) {
                 String cur = reader.nextLine();
-                for (int column =0;column<cur.length();column++) {
-                    board[row][column] = Integer.parseInt(cur.charAt(column)+"");
+                for (int column = 0; column < cur.length(); column++) {
+                    board[row][column] = Integer.parseInt(cur.charAt(column) + "");
                 }
                 row++;
             }
             return board;
-        }catch (IOException err) {
+        } catch (IOException err) {
             System.out.println("Error reading file");
         }
         return new int[0][0];
     }
 
+    /**
+     * This method is responsible for providing a random directory referring to a random board from
+     * the files.
+     *
+     * @return a string indicating the directory of a random board.
+     */
     public static String randomDir() {
         File[] files = new File("SudokuTables").listFiles();
-        return "SudokuTables/"+files[new Random().nextInt(files.length)].getName();
+        return "SudokuTables/" + files[new Random().nextInt(files.length)].getName();
     }
 
 
